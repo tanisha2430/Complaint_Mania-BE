@@ -80,7 +80,7 @@ routerUser.post('/users', async (req, res) => {
     const data = {
       user: { "id":id }
     }
-    const client = await jwt.sign(data, "tanisha");
+    const client = await jwt.sign(data, process.env.JWT_KEY);
 
     console.log('User inserted successfully:', result);
     res.status(200).json({message:"SignUp successful",client})
@@ -134,7 +134,7 @@ routerUser.post('/users/login', (req, res) => {
     const data = {
       user: { "id":user.id }
     }
-    const client = await jwt.sign(data, "tanisha");
+    const client = await jwt.sign(data, process.env.JWT_KEY);
 
 
     res.status(200).json({message:'Login successful',client});

@@ -22,8 +22,12 @@ app.use('/api', usersRouter);
 app.use('/api', adminsRouter);
 app.use('/api', complaintsRouter);
 
+app.get('/test',(req,res)=>{
+  res.json("test complete")
+})
+
 // Start the Express server
-const PORT =3000;
+const PORT =process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

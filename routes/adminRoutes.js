@@ -36,7 +36,7 @@ routerAdmin.post('/admin', async (req, res) => {
     const data = {
       admin: { "id":id }
     }
-    const manager = await jwt.sign(data, "tanisha");
+    const manager = await jwt.sign(data, process.env.JWT_KEY);
 
     console.log('User inserted successfully:', result);
     res.status(200).json({message:"SignUp successful",manager})
@@ -82,7 +82,7 @@ routerAdmin.post('/admin/login', (req, res) => {
     const data = {
       admin: { "id":user.id }
     }
-    const manager = await jwt.sign(data, "tanisha");
+    const manager = await jwt.sign(data, process.env.JWT_KEY);
 
 
     res.status(200).json({message:'Login successful',manager});

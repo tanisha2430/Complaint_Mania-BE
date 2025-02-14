@@ -25,7 +25,7 @@ const mysql = require('mysql2');
 const url = require('url');  // Import the 'url' module
 
 // Connection string (you should replace this with your environment variable)
-const connectionString = process.env.MYSQL_CONNECTION_URL || 'mysql://root:ZJDlMewPUfxvfNwtdfgcYCdOwidGgReV@junction.proxy.rlwy.net:13909/railway';
+const connectionString = process.env.MYSQL_CONNECTION_URL;
 
 // Parse the connection string using the URL module
 const parsedUrl = url.parse(connectionString);

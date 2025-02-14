@@ -9,7 +9,7 @@ const protectRoute = async (req, res, next) => {
     if (!token) {
       return res.status(401).json({ error: "Please login first as user" });
     }
-    const decode = jwt.verify(token, "tanisha");
+    const decode = jwt.verify(token, process.env.JWT_KEY);
 
     console.log(decode);
 
@@ -52,7 +52,7 @@ const adminRoute = async (req, res, next) => {
     if (!token) {
       return res.status(401).json({ error: "Please login as admin" });
     }
-    const decode = jwt.verify(token, "tanisha");
+    const decode = jwt.verify(token, process.env.JWT_KEY);
 
     console.log(decode);
     console.log(decode.admin)
